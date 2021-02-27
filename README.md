@@ -25,4 +25,3 @@ npm install -r package.json
 You can download docker image from DockerHub
 
 https://hub.docker.com/r/telminov/ca/
-
