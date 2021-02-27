@@ -21,11 +21,16 @@ class SiteCrtCreate(serializers.ModelSerializer):
 
 class SiteCrt(serializers.ModelSerializer):
     crt = serializers.SerializerMethodField()
+    key = serializers.SerializerMethodField()
 
     class Meta:
         model = models.SiteCrt
-        fields = ['cn', 'crt']
+        fields = ['cn', 'crt', 'key']
 
     @staticmethod
     def get_crt(obj):
         return obj.crt
+
+    @staticmethod
+    def get_key(obj):
+        return obj.key
