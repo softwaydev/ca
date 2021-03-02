@@ -16,7 +16,7 @@ RUN apt-get install -y \
 
 RUN pip install --upgrade pip
 
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN ln -sv /usr/bin/nodejs /usr/bin/node
 
 RUN locale-gen ru_RU.UTF-8
 ENV LANG ru_RU.UTF-8
