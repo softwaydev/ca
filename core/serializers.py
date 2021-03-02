@@ -1,5 +1,5 @@
 import datetime
-
+from django.conf import settings
 from rest_framework import serializers
 
 from core import models
@@ -51,7 +51,7 @@ class SiteCrt(serializers.Serializer):
         instance = models.SiteCrt.objects.filter(cn=self.validated_data["cn"])
         if not instance:
             validity_period = (
-                datetime.datetime.now() + datetime.timedelta(days=365)
+                datetime.datetime.now() + datetime.timedelta(days=settings.VALIDITY_PERIOD_CRT)
             ).date()
             ca = Ca()
             if ca.get_type_alt_names(self.validated_data["cn"]):
